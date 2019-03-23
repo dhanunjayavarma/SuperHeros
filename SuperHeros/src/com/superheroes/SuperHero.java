@@ -6,53 +6,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SuperHero {
-	private ArrayList<String> namesList = new ArrayList<String>(
+	private ArrayList<String> names = new ArrayList<String>(
 			Arrays.asList("SUPERMAN", "THOR", "ROBIN", "IRONMAN", "GHOSTRIDER", "CAPTAINAMERICA", "FLASH", "WOLVERINE",
 					"BATSMAN", "HULK", "BLADE", "PHANTOM", "SPIDERMAN", "BLACKWIDOW", "HELLOBOY", "PUNISHER"));
 
 	private HashMap<String, String> superHeroes;
 
 	public SuperHero() {
-		superHeroes = createMap(namesList);
+		superHeroes = createSuperHeroesCodes(names);
 	}
 
-	public String getSuperHero(String key) {
-		return superHeroes.get(key);
+	public String getSuperHero(String code) {
+		return superHeroes.get(code);
 	}
 
-	private static HashMap<String, String> createMap(ArrayList<String> namesList) {
-		HashMap<String, String> myMap = new HashMap<String, String>();
-
-		for (int i = 0; i < namesList.size(); i++) {
-
-			myMap.put(genarateKey(namesList.get(i)), namesList.get(i));
+	private static HashMap<String, String> createSuperHeroesCodes(ArrayList<String> names) {
+		HashMap<String, String> namesWithCodes = new HashMap<String, String>();
+		for (int i = 0; i < names.size(); i++) {
+			namesWithCodes.put(genarateCode(names.get(i)), names.get(i));
 		}
-		return myMap;
+		return namesWithCodes;
 	}
 
-	private static String genarateKey(String value) {
-		String key = "";
-		for (int i = 0; i < value.length(); i++) {
-			char c = value.charAt(i);
+	private static String genarateCode(String name) {
+		String code = "";
+		for (int i = 0; i < name.length(); i++) {
+			char c = name.charAt(i);
 			if (c == 'A' || c == 'B' || c == 'C') {
-				key = key + "2";
+				code = code + "2";
 			} else if (c == 'D' || c == 'E' || c == 'F') {
-				key = key + "3";
+				code = code + "3";
 			} else if (c == 'G' || c == 'H' || c == 'I') {
-				key = key + "4";
+				code = code + "4";
 			} else if (c == 'J' || c == 'K' || c == 'L') {
-				key = key + "5";
+				code = code + "5";
 			} else if (c == 'M' || c == 'N' || c == 'O') {
-				key = key + "6";
+				code = code + "6";
 			} else if (c == 'P' || c == 'Q' || c == 'R' || c == 'S') {
-				key = key + "7";
+				code = code + "7";
 			} else if (c == 'T' || c == 'U' || c == 'V') {
-				key = key + "8";
+				code = code + "8";
 			} else if (c == 'W' || c == 'X' || c == 'Y' | c == 'Z') {
-				key = key + "9";
+				code = code + "9";
 			}
 		}
-		return key;
+		return code;
 	}
 
 }
